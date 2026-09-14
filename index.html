@@ -8,6 +8,7 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://cdn.jsdelivr.net/npm/misans@4.0.0/lib/Normal/MiSans-Normal.min.css" rel="stylesheet">
   <link href="https://cdn.jsdelivr.net/npm/misans@4.0.0/lib/Normal/MiSans-Semibold.min.css" rel="stylesheet">
+  <link href="https://cdn.jsdelivr.net/npm/misans@4.0.0/lib/Normal/MiSans-Bold.min.css" rel="stylesheet">
   <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;600;700&display=swap" rel="stylesheet">
   <style>
     :root {
@@ -17,14 +18,21 @@
       --accent: #ff9800;
       --text: #e6edf3;
       --muted: #8b949e;
+      --grid-line: rgba(255, 152, 0, 0.05);
     }
+
     *, *::before, *::after {
       box-sizing: border-box;
       margin: 0;
       padding: 0;
     }
+
     body {
       background-color: var(--bg);
+         background-image: 
+        linear-gradient(var(--grid-line) 1px, transparent 1px),
+        linear-gradient(90deg, var(--grid-line) 1px, transparent 1px);
+      background-size: 24px 24px;
       color: var(--text);
       font-family: 'MiSans Latin', 'MiSans', sans-serif;
       line-height: 1.6;
@@ -32,56 +40,68 @@
       display: flex;
       flex-direction: column;
       align-items: center;
-      padding: 2.5rem 1rem;
+      padding: 3rem 1rem;
     }
+
     .container {
       width: 100%;
       max-width: 680px;
       display: flex;
       flex-direction: column;
-      gap: 1.75rem;
+      gap: 1.5rem;
     }
-    header {
+
+    .boxed-panel {
+      position: relative;
       border: 1px solid var(--border);
-      background: var(--card-bg);
+      background-color: var(--card-bg);
+
+      background-image: 
+        linear-gradient(rgba(255, 255, 255, 0.02) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(255, 255, 255, 0.02) 1px, transparent 1px);
+      background-size: 16px 16px;
       padding: 1.5rem;
+      display: flex;
+      flex-direction: column;
+      gap: 0.9rem;
     }
+
     .profile-meta {
       display: flex;
       justify-content: space-between;
       align-items: flex-start;
-      margin-bottom: 0.75rem;
+      gap: 1rem;
     }
+
     h1 {
-      font-size: 1.45rem;
+      font-size: 1.5rem;
       font-weight: 700;
       letter-spacing: -0.02em;
     }
+
+    .sub-title {
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 0.76rem;
+      color: var(--accent);
+      margin-top: 0.2rem;
+    }
+
+    .location-tag {
+      font-size: 0.8rem;
+      color: var(--muted);
+      margin-top: 0.2rem;
+    }
+
     .badge {
       font-family: 'JetBrains Mono', monospace;
       font-size: 0.72rem;
       color: var(--accent);
       border: 1px solid var(--border);
+      background: rgba(255, 152, 0, 0.04);
       padding: 2px 8px;
+      white-space: nowrap;
     }
-    .tagline {
-      font-family: 'JetBrains Mono', monospace;
-      font-size: 0.78rem;
-      color: var(--accent);
-      margin-bottom: 0.4rem;
-    }
-    p.intro {
-      font-size: 0.88rem;
-      color: var(--muted);
-    }
-    section {
-      border: 1px solid var(--border);
-      background: var(--card-bg);
-      padding: 1.5rem;
-      display: flex;
-      flex-direction: column;
-      gap: 0.85rem;
-    }
+
     h2 {
       font-family: 'JetBrains Mono', monospace;
       font-size: 0.82rem;
@@ -89,77 +109,89 @@
       color: var(--accent);
       letter-spacing: 0.05em;
     }
-    .about-text {
+
+    .body-copy {
       font-size: 0.86rem;
       color: var(--text);
       display: flex;
       flex-direction: column;
-      gap: 0.5rem;
+      gap: 0.6rem;
     }
-    .about-text span {
+
+    .body-copy strong {
+      color: var(--accent);
+    }
+
+    .tag-cluster {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.4rem;
+    }
+
+    .tech-tag {
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 0.72rem;
       color: var(--muted);
+      border: 1px solid var(--border);
+      background: rgba(0, 0, 0, 0.3);
+      padding: 2px 7px;
     }
-    .project-grid {
+
+    .list-group {
       display: flex;
       flex-direction: column;
-      gap: 0.75rem;
+      gap: 0.65rem;
     }
-    .project-item {
+
+    .list-item {
       border: 1px solid var(--border);
+      background: rgba(0, 0, 0, 0.25);
       padding: 0.85rem 1rem;
-      background: rgba(255, 255, 255, 0.02);
       text-decoration: none;
       color: inherit;
       display: flex;
       justify-content: space-between;
       align-items: center;
     }
-    .project-item:hover {
+
+    .list-item:hover {
       border-color: var(--accent);
     }
-    .project-name {
-      font-size: 0.9rem;
-      font-weight: 600;
-    }
-    .project-desc {
-      font-size: 0.75rem;
-      color: var(--muted);
-    }
-    .project-tag {
-      font-family: 'JetBrains Mono', monospace;
-      font-size: 0.75rem;
-      color: var(--muted);
-    }
-    .hackathon-box {
-      border: 1px solid var(--border);
-      padding: 0.85rem 1rem;
-      background: rgba(255, 255, 255, 0.015);
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-    }
-    .hackathon-title {
+
+    .item-name {
       font-size: 0.88rem;
       font-weight: 600;
     }
-    .hackathon-sub {
+
+    .item-sub {
       font-size: 0.75rem;
       color: var(--muted);
+      margin-top: 2px;
     }
-    .links-list {
+
+    .item-action {
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 0.74rem;
+      color: var(--accent);
+    }
+
+    .channels {
       display: flex;
-      gap: 0.75rem;
+      gap: 0.65rem;
       flex-wrap: wrap;
     }
-    .links-list a {
+
+    .channels a {
       font-family: 'JetBrains Mono', monospace;
       font-size: 0.78rem;
       color: var(--text);
       border: 1px solid var(--border);
-      padding: 0.4rem 0.8rem;
+      background: rgba(0, 0, 0, 0.25);
+      padding: 0.35rem 0.8rem;
       text-decoration: none;
     }
-    .links-list a:hover {
+
+    .channels a:hover {
       border-color: var(--accent);
       color: var(--accent);
     }
@@ -167,63 +199,125 @@
 </head>
 <body>
   <div class="container">
-    <header>
+    
+    <header class="boxed-panel">
       <div class="profile-meta">
         <div>
           <h1>Adnan A. Laskar</h1>
-          <div class="tagline">FRONTEND DEV // UI/UX // GRAPHIC DESIGN</div>
-          <p class="intro">Pursuing STEM in Delhi, India.</p>
+          <div class="sub-title">FRONTEND DEVELOPER // UI & UX // GRAPHIC DESIGNER</div>
+          <div class="location-tag">South Delhi, Delhi, India · Dr. B.R. Ambedkar SoSE (STEM)</div>
         </div>
-        <span class="badge">STARDANCE // HC</span>
+        <span class="badge">HE / HIM</span>
       </div>
     </header>
 
-    <section>
-      <h2>ABOUT</h2>
-      <div class="about-text">
-        <p>I build web interfaces, software systems, and digital designs focusing on hard-geometry layouts and usability.</p>
-        <p>Beyond technology, I am a dedicated <strong>human psychology learner</strong> and a passionate <strong>human activist</strong>, studying social behavior and working toward human-centric community initiatives.</p>
+   <section class="boxed-panel">
+      <h2>ABOUT & DISCIPLINE</h2>
+      <div class="body-copy">
+        <p>I build web interfaces and digital platforms with high-precision UI layouts, color grading, and modern front-end architectures. Pursuing STEM at <strong>DBRA CM SHRI School of Specialised Excellence (Kalkaji)</strong>, my work integrates web technologies, vibe coding methodologies, and emerging AI/ML tooling.</p>
+        <p>Beyond engineering, I am an active <strong>keyboardist</strong>, a dedicated <strong>Social Psychology learner</strong>, and a passionate <strong>human activist</strong>. I study human behavior and community action, supported by mental math proficiency and an interdisciplinary focus across technology, education, sports, music, and philosophy.</p>
       </div>
     </section>
 
-    <section>
-      <h2>HACKATHONS</h2>
-      <div class="hackathon-box">
-        <div>
-          <div class="hackathon-title">HackSideDown</div>
-          <div class="hackathon-sub">Top 10 Finalist (Out of 5 hackathons completed)</div>
-        </div>
-        <span class="badge">FINALIST</span>
+
+    <section class="boxed-panel">
+      <h2>CAPABILITIES & TOOLING</h2>
+      <div class="tag-cluster">
+        <span class="tech-tag">HTML5</span>
+        <span class="tech-tag">CSS3</span>
+        <span class="tech-tag">JavaScript</span>
+        <span class="tech-tag">TypeScript</span>
+        <span class="tech-tag">UI / UX Design</span>
+        <span class="tech-tag">Graphic Design</span>
+        <span class="tech-tag">SaaS Architecture</span>
+        <span class="tech-tag">AI / ML Integration</span>
+        <span class="tech-tag">Mental Math</span>
+        <span class="tech-tag">Piano / Keyboard</span>
       </div>
     </section>
 
-    <section>
-      <h2>SYSTEMS</h2>
-      <div class="project-grid">
-        <a href="https://aethercube.xyz" target="_blank" rel="noopener noreferrer" class="project-item">
+
+    <section class="boxed-panel">
+      <h2>HACKATHONS (5 COMPLETED)</h2>
+      <div class="list-group">
+        <div class="list-item">
           <div>
-            <div class="project-name">Aether-OS</div>
-            <div class="project-desc">Industrial web desktop with window management, virtual storage & terminal.</div>
+            <div class="item-name">Hackside Down Hackathon — Top 10 Finalist</div>
+            <div class="item-sub">Built OpenFlash alongside Sufian Ahmad & Rehan Kasim · Saraswati Global School & Falcon Sphere</div>
           </div>
-          <span class="project-tag">aethercube.xyz ↗</span>
+         <span class="badge">TOP 10</span>
+        </div>
+        <div class="list-item">
+          <div>
+            <div class="item-name">AAROH India X IIITD Hackathon</div>
+            <div class="item-sub">Competitive build sprint & software development track</div>
+          </div>
+          <span class="badge">CERTIFIED</span>
+        </div>
+      </div>
+    </section>
+
+    <section class="boxed-panel">
+      <h2>SYSTEMS & BUILDS</h2>
+      <div class="list-group">
+        <a href="https://aethercube.xyz" target="_blank" rel="noopener noreferrer" class="list-item">
+          <div>
+            <div class="item-name">Aether-OS</div>
+            <div class="item-sub">Web desktop environment with window manager, terminal, virtual storage, and telemetry.</div>
+          </div>
+          <span class="item-action">aethercube.xyz ↗</span>
         </a>
-        <div class="project-item">
+        <a href="https://tinyurl.com/openflash12" target="_blank" rel="noopener noreferrer" class="list-item">
           <div>
-            <div class="project-name">OpenFlash</div>
-            <div class="project-desc">HackSideDown finalist utility project.</div>
+            <div class="item-name">OpenFlash</div>
+            <div class="item-sub">Hackside Down finalist platform to streamline quick response and engineered workflows.</div>
           </div>
-          <span class="project-tag">TOP 10</span>
+          <span class="item-action">DEMO ↗</span>
+        </a>
+      </div>
+    </section>
+
+
+    <section class="boxed-panel">
+      <h2>EDUCATION & ACADEMICS</h2>
+      <div class="list-group">
+        <div class="list-item">
+          <div>
+            <div class="item-name">Dr. B.R. Ambedkar Schools of Specialised Excellence (SoSE)</div>
+            <div class="item-sub">STEM Stream · Grade 10 · Jul 2025 – Present</div>
+          </div>
+          <span class="item-action">DELHI</span>
+        </div>
+        <div class="list-item">
+          <div>
+            <div class="item-name">Central Board of Secondary Education (CBSE)</div>
+            <div class="item-sub">High School · Jan 2019 – Present</div>
+          </div>
+          <span class="item-action">10TH</span>
         </div>
       </div>
     </section>
 
-    <section>
+
+    <section class="boxed-panel">
+      <h2>LINGUISTIC PROFICIENCY</h2>
+      <div class="tag-cluster">
+        <span class="tech-tag">🇬🇧 English · Full Professional</span>
+        <span class="tech-tag">🇮🇳 Hindi · Native / Bilingual</span>
+        <span class="tech-tag">🇩🇪 German · Limited Working</span>
+      </div>
+    </section>
+
+
+    <section class="boxed-panel">
       <h2>CHANNELS</h2>
-      <div class="links-list">
+      <div class="channels">
         <a href="https://github.com/really4adnan" target="_blank" rel="noopener noreferrer">github</a>
+        <a href="https://madebyadnan.xyz" target="_blank" rel="noopener noreferrer">portfolio</a>
         <a href="mailto:really4adnan@gmail.com">email</a>
       </div>
     </section>
+
   </div>
   <script type="module" src="/src/main.ts"></script>
 </body>
