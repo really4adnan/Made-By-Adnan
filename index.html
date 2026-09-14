@@ -1,359 +1,178 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Adnan Akhtar Laskar — Portfolio</title>
-  
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Adnan A. Laskar</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Newsreader:ital,opsz,wght@0,6..72,500;1,6..72,400&display=swap" rel="stylesheet">
-
+  <link href="https://cdn.jsdelivr.net/npm/misans@4.0.0/lib/Normal/MiSans-Normal.min.css" rel="stylesheet">
+  <link href="https://cdn.jsdelivr.net/npm/misans@4.0.0/lib/Normal/MiSans-Semibold.min.css" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;600;700&display=swap" rel="stylesheet">
   <style>
     :root {
-      --bg: #faf6f0;
-      --card: #f2ece1;
-      --text: #231215;
-      --muted: #735d60;
-      --maroon: #681321;
-      --maroon-hover: #480c16;
-      --border: #e3d7c7;
-      --font-body: 'Inter', system-ui, -apple-system, sans-serif;
-      --font-serif: 'Newsreader', Georgia, serif;
+      --bg: #090b0e;
+      --card-bg: #11141a;
+      --border: #232834;
+      --accent: #ff9800;
+      --text: #e6edf3;
+      --muted: #8b949e;
     }
-
-    * {
+    *, *::before, *::after {
+      box-sizing: border-box;
       margin: 0;
       padding: 0;
-      box-sizing: border-box;
     }
-
     body {
       background-color: var(--bg);
       color: var(--text);
-      font-family: var(--font-body);
+      font-family: 'MiSans Latin', 'MiSans', sans-serif;
       line-height: 1.6;
-      padding: 0 1.5rem;
-    }
-
-    /* Layout */
-    .container {
-      max-width: 760px;
-      margin: 0 auto;
-    }
-
-    /* Header & Nav */
-    header {
-      padding: 2.5rem 0 2rem;
-      display: flex;
-      justify-content: space-between;
-      align-items: baseline;
-      border-bottom: 1px solid var(--border);
-    }
-
-    .brand {
-      font-size: 1.05rem;
-      font-weight: 600;
-      color: var(--maroon);
-      text-decoration: none;
-      letter-spacing: -0.01em;
-    }
-
-    nav {
-      display: flex;
-      gap: 1.25rem;
-    }
-
-    nav a {
-      color: var(--muted);
-      text-decoration: none;
-      font-size: 0.9rem;
-      transition: color 0.15s ease;
-    }
-
-    nav a:hover {
-      color: var(--text);
-    }
-
-    /* Hero */
-    .hero {
-      padding: 4.5rem 0 3.5rem;
-    }
-
-    .hero h1 {
-      font-family: var(--font-serif);
-      font-size: clamp(2.4rem, 5vw, 3.2rem);
-      font-weight: 500;
-      line-height: 1.15;
-      letter-spacing: -0.02em;
-      margin-bottom: 1rem;
-      color: var(--maroon);
-    }
-
-    .hero p {
-      font-size: 1.05rem;
-      color: var(--muted);
-      max-width: 580px;
-      margin-bottom: 1.5rem;
-    }
-
-    .links {
-      display: flex;
-      gap: 1rem;
-      align-items: center;
-    }
-
-    .btn {
-      display: inline-block;
-      padding: 0.6rem 1.1rem;
-      background: var(--maroon);
-      color: var(--bg);
-      text-decoration: none;
-      border-radius: 6px;
-      font-size: 0.88rem;
-      font-weight: 500;
-    }
-
-    .btn:hover {
-      background: var(--maroon-hover);
-    }
-
-    .link-subtle {
-      color: var(--muted);
-      text-decoration: none;
-      font-size: 0.9rem;
-    }
-
-    .link-subtle:hover {
-      color: var(--text);
-      text-decoration: underline;
-    }
-
-    /* Sections */
-    section {
-      padding: 3rem 0;
-      border-top: 1px solid var(--border);
-    }
-
-    h2 {
-      font-family: var(--font-serif);
-      font-size: 1.6rem;
-      font-weight: 500;
-      color: var(--maroon);
-      margin-bottom: 1.25rem;
-    }
-
-    .about p {
-      color: var(--text);
-      margin-bottom: 1rem;
-      font-size: 0.98rem;
-    }
-
-    .about p:last-child {
-      margin-bottom: 0;
-      color: var(--muted);
-    }
-
-    /* Projects */
-    .project-list {
+      min-height: 100vh;
       display: flex;
       flex-direction: column;
-      gap: 1.25rem;
+      align-items: center;
+      padding: 2.5rem 1rem;
     }
-
-    .project-card {
-      background: var(--card);
+    .container {
+      width: 100%;
+      max-width: 680px;
+      display: flex;
+      flex-direction: column;
+      gap: 2rem;
+    }
+    header {
       border: 1px solid var(--border);
-      border-radius: 8px;
-      padding: 1.35rem;
+      background: var(--card-bg);
+      padding: 1.5rem;
     }
-
-    .project-top {
+    .profile-meta {
       display: flex;
       justify-content: space-between;
-      align-items: baseline;
-      margin-bottom: 0.4rem;
+      align-items: flex-start;
+      margin-bottom: 0.75rem;
     }
-
-    .project-card h3 {
-      font-size: 1.05rem;
+    h1 {
+      font-size: 1.4rem;
+      font-weight: 700;
+      letter-spacing: -0.02em;
+    }
+    .badge {
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 0.72rem;
+      color: var(--accent);
+      border: 1px solid var(--border);
+      padding: 2px 8px;
+    }
+    p.intro {
+      font-size: 0.88rem;
+      color: var(--muted);
+    }
+    section {
+      border: 1px solid var(--border);
+      background: var(--card-bg);
+      padding: 1.5rem;
+      display: flex;
+      flex-direction: column;
+      gap: 1rem;
+    }
+    h2 {
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 0.85rem;
+      font-weight: 700;
+      color: var(--accent);
+      letter-spacing: 0.05em;
+    }
+    .project-grid {
+      display: flex;
+      flex-direction: column;
+      gap: 0.75rem;
+    }
+    .project-item {
+      border: 1px solid var(--border);
+      padding: 0.85rem 1rem;
+      background: rgba(255, 255, 255, 0.02);
+      text-decoration: none;
+      color: inherit;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+    .project-item:hover {
+      border-color: var(--accent);
+    }
+    .project-name {
+      font-size: 0.9rem;
       font-weight: 600;
     }
-
-    .project-meta {
-      font-size: 0.8rem;
+    .project-desc {
+      font-size: 0.75rem;
       color: var(--muted);
     }
-
-    .project-card p {
+    .project-tag {
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 0.75rem;
       color: var(--muted);
-      font-size: 0.92rem;
-      margin-bottom: 1rem;
     }
-
-    .tech-list {
+    .links-list {
       display: flex;
+      gap: 0.75rem;
       flex-wrap: wrap;
-      gap: 0.4rem;
-      list-style: none;
-      margin-bottom: 1rem;
     }
-
-    .tech-list li {
+    .links-list a {
+      font-family: 'JetBrains Mono', monospace;
       font-size: 0.78rem;
-      background: var(--bg);
+      color: var(--text);
       border: 1px solid var(--border);
-      padding: 0.15rem 0.5rem;
-      border-radius: 4px;
-      color: var(--muted);
-    }
-
-    .project-card a {
-      font-size: 0.85rem;
-      font-weight: 500;
-      color: var(--maroon);
+      padding: 0.4rem 0.8rem;
       text-decoration: none;
     }
-
-    .project-card a:hover {
-      text-decoration: underline;
-    }
-
-    /* Skills Grid */
-    .skills-grid {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 1.5rem;
-    }
-
-    .skills-col h3 {
-      font-size: 0.9rem;
-      font-weight: 600;
-      margin-bottom: 0.5rem;
-      color: var(--text);
-    }
-
-    .skills-col p {
-      font-size: 0.9rem;
-      color: var(--muted);
-    }
-
-    /* Footer */
-    footer {
-      padding: 2.5rem 0;
-      border-top: 1px solid var(--border);
-      font-size: 0.85rem;
-      color: var(--muted);
-      display: flex;
-      justify-content: space-between;
-    }
-
-    @media (max-width: 600px) {
-      .skills-grid {
-        grid-template-columns: 1fr;
-      }
-      header, footer {
-        flex-direction: column;
-        gap: 0.75rem;
-      }
+    .links-list a:hover {
+      border-color: var(--accent);
+      color: var(--accent);
     }
   </style>
 </head>
 <body>
-
   <div class="container">
     <header>
-      <a href="#" class="brand">Adnan A Laskar</a>
-      <nav>
-        <a href="#about">About</a>
-        <a href="#projects">Projects</a>
-        <a href="#skills">Toolkit</a>
-        <a href="mailto:info.adnanakhtar001@gmail.com">Contact</a>
-      </nav>
+      <div class="profile-meta">
+        <div>
+          <h1>Adnan A. Laskar</h1>
+          <p class="intro">High school student & frontend developer based in Delhi.</p>
+        </div>
+        <span class="badge">STARDANCE // HC</span>
+      </div>
     </header>
 
-    <main>
-      <section class="hero">
-        <h1>Frontend developer &amp; designer.</h1>
-        <p>
-          High school STEM student based in Delhi. I like building clean, accessible web interfaces, lightweight tools, and participating in hackathons.
-        </p>
-        <div class="links">
-          <a href="#projects" class="btn">View Work</a>
-          <a href="mailto:info.adnanakhtar001@gmail.com" class="link-subtle">Get in touch &rarr;</a>
-        </div>
-      </section>
-
-      <section id="about" class="about">
-        <h2>About</h2>
-        <p>
-          I'm currently a STEM student at Dr. B.R. Ambedkar School of Specialised Excellence (Kalkaji). Most of my time on the web goes toward frontend layouts, typography, and writing functional code using JavaScript and TypeScript.
-        </p>
-        <p>
-          Outside of coding, I play the piano/keyboard, enjoy mental math, and compete in hackathons (placed Top 10 at Hackside Down).
-        </p>
-      </section>
-
-      <section id="projects">
-        <h2>Projects</h2>
-        <div class="project-list">
-          
-          <article class="project-card">
-            <div class="project-top">
-              <h3>OpenFlash</h3>
-              <span class="project-meta">Hackside Down — Top 10</span>
-            </div>
-            <p>
-              A web tool built to capture quick ideas and streamline mental workflows during rapid hackathon sprints. Built with Sufian Ahmad and Rehan Kasim.
-            </p>
-            <ul class="tech-list">
-              <li>JavaScript</li>
-              <li>HTML/CSS</li>
-              <li>n8n</li>
-            </ul>
-            <a href="https://tinyurl.com/openflash12" target="_blank" rel="noopener">Live Demo &rarr;</a>
-          </article>
-
-          <article class="project-card">
-            <div class="project-top">
-              <h3>Personal Hub (madebyadnan.xyz)</h3>
-              <span class="project-meta">Personal</span>
-            </div>
-            <p>
-              Lightweight personal portfolio built to test responsive type scales, warm-toned palette contrast, and tracked coding stats via GitHub Pages.
-            </p>
-            <ul class="tech-list">
-              <li>HTML5</li>
-              <li>CSS3</li>
-              <li>TypeScript</li>
-              <li>GitHub Pages</li>
-            </ul>
-            <a href="https://github.com/really4adnan/Made-By-Adnan" target="_blank" rel="noopener">Source Code &rarr;</a>
-          </article>
-
-        </div>
-      </section>
-
-      <section id="skills">
-        <h2>Toolkit</h2>
-        <div class="skills-grid">
-          <div class="skills-col">
-            <h3>Development</h3>
-            <p>HTML5, CSS3 (Flexbox/Grid), JavaScript (ES6+), TypeScript, Git, VS Code.</p>
+    <section>
+      <h2>PROJECTS</h2>
+      <div class="project-grid">
+        <a href="https://aethercube.xyz" target="_blank" rel="noopener noreferrer" class="project-item">
+          <div>
+            <div class="project-name">Aether-OS</div>
+            <div class="project-desc">Web desktop environment with custom window manager & storage.</div>
           </div>
-          <div class="skills-col">
-            <h3>Design &amp; Other</h3>
-            <p>UI layout design, Figma, color theory, typography, German (basic).</p>
+          <span class="project-tag">LIVE ↗</span>
+        </a>
+        <div class="project-item">
+          <div>
+            <div class="project-name">OpenFlash</div>
+            <div class="project-desc">Hackside Down Hackathon top 10 finalist submission.</div>
           </div>
+          <span class="project-tag">2026</span>
         </div>
-      </section>
-    </main>
+      </div>
+    </section>
 
-    <footer>
-      <span>&copy; 2026 Adnan Akhtar Laskar</span>
-      <span>Hosted on GitHub Pages</span>
-    </footer>
+    <section>
+      <h2>CHANNELS</h2>
+      <div class="links-list">
+        <a href="https://github.com/really4adnan" target="_blank" rel="noopener noreferrer">github</a>
+        <a href="mailto:really4adnan@gmail.com">email</a>
+      </div>
+    </section>
   </div>
-
+  <script type="module" src="/src/main.ts"></script>
 </body>
 </html>

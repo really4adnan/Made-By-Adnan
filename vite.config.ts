@@ -1,5 +1,9 @@
 import { defineConfig } from 'vite';
 
 export default defineConfig({
-  base: '/Made-By-Adnan/',
+  base: '/',
+  build: {
+    outDir: 'dist',
+    sourcemap: false
+  }
 });
