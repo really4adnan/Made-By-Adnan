@@ -1,31 +1,18 @@
-# Adnan A. Laskar
+# madebyadnan.xyz
 
-I'm a high school STEM student and frontend developer based in Delhi. I focus on building lightweight, zero-dependency web interfaces, exploring UI/UX design, and experimenting with browser-based tools.
+Personal portfolio site built to test responsive typography, warm-toned color contrast (cream & maroon), and track coding hours for the Hack Club Stardance challenge.
 
----
+Live site: [madebyadnan.xyz](https://madebyadnan.xyz)
 
-## Projects
+### About
+I'm a high school STEM student at Dr. B.R. Ambedkar SoSE (Kalkaji) in Delhi. I build frontend web apps, design UI layouts, and compete in hackathons.
 
-* **[Aether-OS](https://github.com/really4adnan/Aether-OS)**  
-  A simulated, desktop-style operating system built directly in the browser using vanilla web technologies.
-* **[To-Do-List_MBA](https://github.com/really4adnan/To-Do-List_MBA)**  
-  A clean, client-side task register engineered with offline persistence and zero runtime bloat.
-* **OpenFlash**  
-  A quick-access flashcards and study utility developed for rapid revision and sprint workflows.
+### Projects included
+- **OpenFlash** – Quick idea capture and workflow tool built with Sufian Ahmad and Rehan Kasim (Top 10 at Hackside Down Hackathon).
+- **Personal Hub** – This site. Clean HTML/CSS, dynamic TypeScript cards, and custom palette.
+- **UI/UX Work** – Interface design and color experiments.
 
----
-
-## Tech & Tools
-
-* **Languages:** HTML5, CSS3, JavaScript
-* **Workflow:** Git, Visual Studio Code, Linux/Bash
-* **Design:** Interface layouts, typography, and functional wireframing
-
----
-
-## Connect
-
-* **Website:** [madebyadnan.xyz](https://madebyadnan.xyz)
-* **Link Hub:** [link-pack.xyz](https://link-pack.xyz)
-* **GitHub:** [@really4adnan](https://github.com/really4adnan)
-* **LinkedIn:** [Adnan A. Laskar](https://www.linkedin.com/in/adnan-a-laskar-510661426)
+### Dev setup
+```bash
+npm install
+npm run dev
