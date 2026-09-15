@@ -3,322 +3,145 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Adnan A. Laskar</title>
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://cdn.jsdelivr.net/npm/misans@4.0.0/lib/Normal/MiSans-Normal.min.css" rel="stylesheet">
-  <link href="https://cdn.jsdelivr.net/npm/misans@4.0.0/lib/Normal/MiSans-Semibold.min.css" rel="stylesheet">
-  <link href="https://cdn.jsdelivr.net/npm/misans@4.0.0/lib/Normal/MiSans-Bold.min.css" rel="stylesheet">
-  <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;600;700&display=swap" rel="stylesheet">
-  <style>
-    :root {
-      --bg: #090b0e;
-      --card-bg: #11141a;
-      --border: #232834;
-      --accent: #ff9800;
-      --text: #e6edf3;
-      --muted: #8b949e;
-      --grid-line: rgba(255, 152, 0, 0.05);
-    }
-
-    *, *::before, *::after {
-      box-sizing: border-box;
-      margin: 0;
-      padding: 0;
-    }
-
-    body {
-      background-color: var(--bg);
-         background-image: 
-        linear-gradient(var(--grid-line) 1px, transparent 1px),
-        linear-gradient(90deg, var(--grid-line) 1px, transparent 1px);
-      background-size: 24px 24px;
-      color: var(--text);
-      font-family: 'MiSans Latin', 'MiSans', sans-serif;
-      line-height: 1.6;
-      min-height: 100vh;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      padding: 3rem 1rem;
-    }
-
-    .container {
-      width: 100%;
-      max-width: 680px;
-      display: flex;
-      flex-direction: column;
-      gap: 1.5rem;
-    }
-
-    .boxed-panel {
-      position: relative;
-      border: 1px solid var(--border);
-      background-color: var(--card-bg);
-
-      background-image: 
-        linear-gradient(rgba(255, 255, 255, 0.02) 1px, transparent 1px),
-        linear-gradient(90deg, rgba(255, 255, 255, 0.02) 1px, transparent 1px);
-      background-size: 16px 16px;
-      padding: 1.5rem;
-      display: flex;
-      flex-direction: column;
-      gap: 0.9rem;
-    }
-
-    .profile-meta {
-      display: flex;
-      justify-content: space-between;
-      align-items: flex-start;
-      gap: 1rem;
-    }
-
-    h1 {
-      font-size: 1.5rem;
-      font-weight: 700;
-      letter-spacing: -0.02em;
-    }
-
-    .sub-title {
-      font-family: 'JetBrains Mono', monospace;
-      font-size: 0.76rem;
-      color: var(--accent);
-      margin-top: 0.2rem;
-    }
-
-    .location-tag {
-      font-size: 0.8rem;
-      color: var(--muted);
-      margin-top: 0.2rem;
-    }
-
-    .badge {
-      font-family: 'JetBrains Mono', monospace;
-      font-size: 0.72rem;
-      color: var(--accent);
-      border: 1px solid var(--border);
-      background: rgba(255, 152, 0, 0.04);
-      padding: 2px 8px;
-      white-space: nowrap;
-    }
-
-    h2 {
-      font-family: 'JetBrains Mono', monospace;
-      font-size: 0.82rem;
-      font-weight: 700;
-      color: var(--accent);
-      letter-spacing: 0.05em;
-    }
-
-    .body-copy {
-      font-size: 0.86rem;
-      color: var(--text);
-      display: flex;
-      flex-direction: column;
-      gap: 0.6rem;
-    }
-
-    .body-copy strong {
-      color: var(--accent);
-    }
-
-    .tag-cluster {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 0.4rem;
-    }
-
-    .tech-tag {
-      font-family: 'JetBrains Mono', monospace;
-      font-size: 0.72rem;
-      color: var(--muted);
-      border: 1px solid var(--border);
-      background: rgba(0, 0, 0, 0.3);
-      padding: 2px 7px;
-    }
-
-    .list-group {
-      display: flex;
-      flex-direction: column;
-      gap: 0.65rem;
-    }
-
-    .list-item {
-      border: 1px solid var(--border);
-      background: rgba(0, 0, 0, 0.25);
-      padding: 0.85rem 1rem;
-      text-decoration: none;
-      color: inherit;
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-    }
-
-    .list-item:hover {
-      border-color: var(--accent);
-    }
-
-    .item-name {
-      font-size: 0.88rem;
-      font-weight: 600;
-    }
-
-    .item-sub {
-      font-size: 0.75rem;
-      color: var(--muted);
-      margin-top: 2px;
-    }
-
-    .item-action {
-      font-family: 'JetBrains Mono', monospace;
-      font-size: 0.74rem;
-      color: var(--accent);
-    }
-
-    .channels {
-      display: flex;
-      gap: 0.65rem;
-      flex-wrap: wrap;
-    }
-
-    .channels a {
-      font-family: 'JetBrains Mono', monospace;
-      font-size: 0.78rem;
-      color: var(--text);
-      border: 1px solid var(--border);
-      background: rgba(0, 0, 0, 0.25);
-      padding: 0.35rem 0.8rem;
-      text-decoration: none;
-    }
-
-    .channels a:hover {
-      border-color: var(--accent);
-      color: var(--accent);
-    }
-  </style>
+  <title>Made By Adnan | Portfolio</title>
+  <link rel="stylesheet" href="style.css" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
 </head>
 <body>
-  <div class="container">
-    
-    <header class="boxed-panel">
-      <div class="profile-meta">
-        <div>
-          <h1>Adnan A. Laskar</h1>
-          <div class="sub-title">FRONTEND DEVELOPER // UI & UX // GRAPHIC DESIGNER</div>
-          <div class="location-tag">South Delhi, Delhi, India · Dr. B.R. Ambedkar SoSE (STEM)</div>
-        </div>
-        <span class="badge">HE / HIM</span>
+
+  <header class="header">
+    <a href="#home" class="logo">Adnan.</a>
+    <nav class="navbar">
+      <a href="#home" class="active">Home</a>
+      <a href="#about">About</a>
+      <a href="#skills">Skills</a>
+      <a href="#projects">Projects</a>
+      <a href="#contact">Contact</a>
+    </nav>
+    <div class="menu-btn" id="menu-btn">
+      <i class="fa-solid fa-bars"></i>
+    </div>
+  </header>
+
+  <section class="home" id="home">
+    <div class="home-content">
+      <h3>Hi, I'm</h3>
+      <h1>Adnan A. Laskar</h1>
+      <h3>And I'm a <span class="typing-text">Frontend Developer</span></h3>
+      <p>
+        Student at Dr. B.R. Ambedkar SoSE Kalkaji, STEM stream. Frontend developer, UI/UX designer, and graphic designer.
+      </p>
+      <div class="social-media">
+        <a href="https://www.linkedin.com/in/adnan-a-laskar-510661426?utm_source=share_via&utm_content=profile&utm_medium=member_android" target="_blank" rel="noopener noreferrer" title="LinkedIn"><i class="fa-brands fa-linkedin"></i></a>
+        <a href="https://github.com/really4adnan" target="_blank" rel="noopener noreferrer" title="GitHub"><i class="fa-brands fa-github"></i></a>
+        <a href="mailto:really4adnan@gmail.com" title="Email"><i class="fa-solid fa-envelope"></i></a>
+        <a href="https://madebyadnan.xyz" target="_blank" rel="noopener noreferrer" title="Portfolio"><i class="fa-solid fa-globe"></i></a>
       </div>
-    </header>
+      <a href="https://madebyadnan.xyz" target="_blank" class="btn">View Live Portfolio</a>
+    </div>
+    <div class="home-img">
+      <img src="images/profile.png" alt="Adnan A. Laskar" />
+    </div>
+  </section>
 
-   <section class="boxed-panel">
-      <h2>ABOUT & DISCIPLINE</h2>
-      <div class="body-copy">
-        <p>I build web interfaces and digital platforms with high-precision UI layouts, color grading, and modern front-end architectures. Pursuing STEM at <strong>DBRA CM SHRI School of Specialised Excellence (Kalkaji)</strong>, my work integrates web technologies, vibe coding methodologies, and emerging AI/ML tooling.</p>
-        <p>Beyond engineering, I am an active <strong>keyboardist</strong>, a dedicated <strong>Social Psychology learner</strong>, and a passionate <strong>human activist</strong>. I study human behavior and community action, supported by mental math proficiency and an interdisciplinary focus across technology, education, sports, music, and philosophy.</p>
+  <section class="about" id="about">
+    <div class="about-img">
+      <img src="images/profile.png" alt="Adnan A. Laskar" />
+    </div>
+    <div class="about-content">
+      <h2 class="heading">About <span>Me</span></h2>
+      <h3>Frontend Developer & Designer</h3>
+      <p>
+        Pursuing STEM at Dr. B.R. Ambedkar School of Specialised Excellence (Kalkaji, Delhi). I specialize in HTML, CSS, JavaScript, UI/UX layout, and color grading.
+      </p>
+      <p>
+        I have completed 5 hackathons, securing Top 10 at Hackside Down 2026. Aside from development, I focus on social psychology, human activism, and play the piano/keyboard.
+      </p>
+      <a href="#projects" class="btn">Explore Work</a>
+    </div>
+  </section>
+
+  <section class="skills" id="skills">
+    <h2 class="heading">My <span>Skills</span></h2>
+    <div class="skills-container">
+      <div class="skills-box">
+        <i class="fa-brands fa-html5"></i>
+        <h3>Web Development</h3>
+        <p>HTML5, CSS3, JavaScript, TypeScript, and SaaS architecture.</p>
       </div>
-    </section>
-
-
-    <section class="boxed-panel">
-      <h2>CAPABILITIES & TOOLING</h2>
-      <div class="tag-cluster">
-        <span class="tech-tag">HTML5</span>
-        <span class="tech-tag">CSS3</span>
-        <span class="tech-tag">JavaScript</span>
-        <span class="tech-tag">TypeScript</span>
-        <span class="tech-tag">UI / UX Design</span>
-        <span class="tech-tag">Graphic Design</span>
-        <span class="tech-tag">SaaS Architecture</span>
-        <span class="tech-tag">AI / ML Integration</span>
-        <span class="tech-tag">Mental Math</span>
-        <span class="tech-tag">Piano / Keyboard</span>
+      <div class="skills-box">
+        <i class="fa-solid fa-pen-nib"></i>
+        <h3>Design</h3>
+        <p>UI & UX design, layout precision, color grading, and graphic design.</p>
       </div>
-    </section>
-
-
-    <section class="boxed-panel">
-      <h2>HACKATHONS (5 COMPLETED)</h2>
-      <div class="list-group">
-        <div class="list-item">
-          <div>
-            <div class="item-name">Hackside Down Hackathon — Top 10 Finalist</div>
-            <div class="item-sub">Built OpenFlash alongside Sufian Ahmad & Rehan Kasim · Saraswati Global School & Falcon Sphere</div>
-          </div>
-         <span class="badge">TOP 10</span>
-        </div>
-        <div class="list-item">
-          <div>
-            <div class="item-name">AAROH India X IIITD Hackathon</div>
-            <div class="item-sub">Competitive build sprint & software development track</div>
-          </div>
-          <span class="badge">CERTIFIED</span>
-        </div>
+      <div class="skills-box">
+        <i class="fa-solid fa-trophy"></i>
+        <h3>Hackathons</h3>
+        <p>5 hackathons completed, including Top 10 finalist at Hackside Down.</p>
       </div>
-    </section>
-
-    <section class="boxed-panel">
-      <h2>SYSTEMS & BUILDS</h2>
-      <div class="list-group">
-        <a href="https://aethercube.xyz" target="_blank" rel="noopener noreferrer" class="list-item">
-          <div>
-            <div class="item-name">Aether-OS</div>
-            <div class="item-sub">Web desktop environment with window manager, terminal, virtual storage, and telemetry.</div>
-          </div>
-          <span class="item-action">aethercube.xyz ↗</span>
-        </a>
-        <a href="https://tinyurl.com/openflash12" target="_blank" rel="noopener noreferrer" class="list-item">
-          <div>
-            <div class="item-name">OpenFlash</div>
-            <div class="item-sub">Hackside Down finalist platform to streamline quick response and engineered workflows.</div>
-          </div>
-          <span class="item-action">DEMO ↗</span>
-        </a>
+      <div class="skills-box">
+        <i class="fa-solid fa-brain"></i>
+        <h3>Interests</h3>
+        <p>Social psychology, human activism, mental arithmetic, and piano/keyboard.</p>
       </div>
-    </section>
+    </div>
+  </section>
 
-
-    <section class="boxed-panel">
-      <h2>EDUCATION & ACADEMICS</h2>
-      <div class="list-group">
-        <div class="list-item">
-          <div>
-            <div class="item-name">Dr. B.R. Ambedkar Schools of Specialised Excellence (SoSE)</div>
-            <div class="item-sub">STEM Stream · Grade 10 · Jul 2025 – Present</div>
-          </div>
-          <span class="item-action">DELHI</span>
-        </div>
-        <div class="list-item">
-          <div>
-            <div class="item-name">Central Board of Secondary Education (CBSE)</div>
-            <div class="item-sub">High School · Jan 2019 – Present</div>
-          </div>
-          <span class="item-action">10TH</span>
+  <section class="projects" id="projects">
+    <h2 class="heading">Featured <span>Projects</span></h2>
+    <div class="projects-container">
+      <div class="projects-box">
+        <img src="images/logo.png" alt="Aether-OS" />
+        <div class="projects-layer">
+          <h4>Aether-OS</h4>
+          <p>Browser desktop environment with window manager, terminal, and local storage.</p>
+          <a href="https://aethercube.xyz" target="_blank" rel="noopener noreferrer"><i class="fa-solid fa-up-right-from-square"></i></a>
         </div>
       </div>
-    </section>
-
-
-    <section class="boxed-panel">
-      <h2>LINGUISTIC PROFICIENCY</h2>
-      <div class="tag-cluster">
-        <span class="tech-tag">🇬🇧 English · Full Professional</span>
-        <span class="tech-tag">🇮🇳 Hindi · Native / Bilingual</span>
-        <span class="tech-tag">🇩🇪 German · Limited Working</span>
+      <div class="projects-box">
+        <img src="images/logo.png" alt="OpenFlash" />
+        <div class="projects-layer">
+          <h4>OpenFlash</h4>
+          <p>Top 10 Finalist project built during the Hackside Down Hackathon 2026.</p>
+          <a href="https://tinyurl.com/openflash12" target="_blank" rel="noopener noreferrer"><i class="fa-solid fa-up-right-from-square"></i></a>
+        </div>
       </div>
-    </section>
-
-
-    <section class="boxed-panel">
-      <h2>CHANNELS</h2>
-      <div class="channels">
-        <a href="https://github.com/really4adnan" target="_blank" rel="noopener noreferrer">github</a>
-        <a href="https://madebyadnan.xyz" target="_blank" rel="noopener noreferrer">portfolio</a>
-        <a href="mailto:really4adnan@gmail.com">email</a>
+      <div class="projects-box">
+        <img src="images/logo.png" alt="Made-By-Adnan" />
+        <div class="projects-layer">
+          <h4>Made By Adnan</h4>
+          <p>Personal portfolio site deployed on GitHub Pages.</p>
+          <a href="https://madebyadnan.xyz" target="_blank" rel="noopener noreferrer"><i class="fa-solid fa-up-right-from-square"></i></a>
+        </div>
       </div>
-    </section>
+    </div>
+  </section>
 
-  </div>
-  <script type="module" src="/src/main.ts"></script>
+  <section class="contact" id="contact">
+    <h2 class="heading">Get In <span>Touch</span></h2>
+    <form action="mailto:really4adnan@gmail.com" method="post" enctype="text/plain">
+      <div class="input-box">
+        <input type="text" placeholder="Full Name" required />
+        <input type="email" placeholder="Email Address" required />
+      </div>
+      <div class="input-box">
+        <input type="text" placeholder="Subject" required />
+        <input type="text" placeholder="Location" value="South Delhi, Delhi, India" />
+      </div>
+      <textarea cols="30" rows="8" placeholder="Your Message" required></textarea>
+      <input type="submit" value="Send Message" class="btn" />
+    </form>
+  </section>
+
+  <footer class="footer">
+    <div class="footer-text">
+      <p>© 2026 Adnan A. Laskar</p>
+    </div>
+    <div class="footer-iconTop">
+      <a href="#home"><i class="fa-solid fa-angle-up"></i></a>
+    </div>
+  </footer>
+
+  <script src="script.js"></script>
 </body>
 </html>
